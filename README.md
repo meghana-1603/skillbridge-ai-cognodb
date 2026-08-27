@@ -139,6 +139,10 @@ Displays skills required by selected companies.
 ### Company Explorer
 
 ![Company Explorer](assets/company_explorer.png)
+
+### Graph View
+
+![Graph View](assets/graph_view.png)
 ## Author
 
 **Meghana Dasari**
