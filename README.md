@@ -108,13 +108,21 @@ Displays skills required by selected companies.
 
 ## Screenshots
 
-Add screenshots inside the `assets/` folder:
+### Home Dashboard
 
-* Dashboard
-* User Explorer
-* Mentor Recommendations
-* Company Explorer
+![Dashboard](assets/dashboard.png)
 
+### User Explorer
+
+![User Explorer](assets/user_explorer.png)
+
+### Mentor Recommendations
+
+![Mentor Recommendations](assets/mentors.png)
+
+### Company Explorer
+
+![Company Explorer](assets/company_explorer.png)
 ## Author
 
 **Meghana Dasari**
