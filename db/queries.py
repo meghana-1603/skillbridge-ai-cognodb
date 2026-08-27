@@ -123,3 +123,33 @@ def get_company_skills(company_name):
         """, name=company_name)
 
         return [record["skill"] for record in result]
+def get_skill_counts():
+    with driver.session() as session:
+
+        result = session.run("""
+        MATCH (u:User)-[:HAS_SKILL]->(s:Skill)
+        RETURN s.name AS skill,
+               count(u) AS users
+        ORDER BY users DESC
+        """)
+
+        return [
+            {"skill": r["skill"], "users": r["users"]}
+            for r in result
+        ]
+
+
+def get_company_counts():
+    with driver.session() as session:
+
+        result = session.run("""
+        MATCH (u:User)-[:WORKS_AT]->(c:Company)
+        RETURN c.name AS company,
+               count(u) AS employees
+        ORDER BY employees DESC
+        """)
+
+        return [
+            {"company": r["company"], "employees": r["employees"]}
+            for r in result
+        ]
