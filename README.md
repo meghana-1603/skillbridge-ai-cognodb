@@ -1,44 +1,43 @@
 # 🕸️ SkillBridge AI
 
-A graph-powered career networking platform built using **CognoDB (Neo4j-compatible Graph Database)** and **Streamlit**.
+A graph-powered career networking platform built using **CognoDB** and **Streamlit**.
 
 ## Overview
 
-SkillBridge AI helps users discover mentors, explore companies, and understand the relationships between people, skills, companies, and courses using graph traversal.
+SkillBridge AI helps users discover mentors, explore companies, and visualize relationships between people, skills, companies, and courses using a graph database.
 
 ## Why a Graph Database?
 
-Traditional relational databases require multiple joins to answer relationship-heavy questions.
+This application is relationship-centric. Features like mentor recommendation require traversing multiple connected nodes:
 
-A graph database models these connections naturally.
+**User → Skill ← User**
 
-Example multi-hop traversal:
-
-User → Skill ← User
-
-This enables mentor recommendations based on shared skills with a simple graph query.
+In a relational database this would require multiple joins, whereas a graph database performs these traversals naturally using Cypher.
 
 ## Graph Data Model
 
-* **User**
-* **Skill**
-* **Company**
-* **Course**
+### Nodes
 
-Relationships:
+* User
+* Skill
+* Company
+* Course
 
-* `HAS_SKILL`
-* `WORKS_AT`
-* `REQUIRES_SKILL`
-* `TEACHES`
+### Relationships
+
+* HAS_SKILL
+* WORKS_AT
+* REQUIRES_SKILL
+* TEACHES
 
 ## Features
 
 * User Explorer
 * Mentor Recommendations
 * Company Explorer
-* Required Skills
-* Live Database Statistics
+* Required Skills Explorer
+* Live Analytics Dashboard
+* Interactive Charts
 
 ## Tech Stack
 
@@ -66,8 +65,8 @@ skillbridge-ai/
 
 ## Setup
 
-1. Create a CognoDB instance.
-2. Create a `.env` file.
+1. Create a free CognoDB instance.
+2. Create a `.env` file:
 
 ```env
 DB_URI=your_uri
@@ -75,19 +74,19 @@ DB_USER=cognodb
 DB_PASSWORD=your_password
 ```
 
-3. Install dependencies.
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Seed the database.
+4. Load seed data:
 
 ```bash
 python seed.py
 ```
 
-5. Run the application.
+5. Run the application:
 
 ```bash
 streamlit run app.py
@@ -97,15 +96,24 @@ streamlit run app.py
 
 ### Mentor Recommendation
 
-Finds users connected through shared skills.
+Finds users sharing common skills through a multi-hop traversal.
 
 ### Company Explorer
 
-Lists employees working at a selected company.
+Retrieves employees connected to a company.
 
 ### Required Skills
 
-Shows skills required by each company.
+Displays skills required by selected companies.
+
+## Screenshots
+
+Add screenshots inside the `assets/` folder:
+
+* Dashboard
+* User Explorer
+* Mentor Recommendations
+* Company Explorer
 
 ## Author
 
