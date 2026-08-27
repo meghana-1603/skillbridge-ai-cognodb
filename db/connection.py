@@ -4,9 +4,16 @@ import os
 
 load_dotenv()
 
-URI = os.getenv("DB_URI")
-USER = os.getenv("DB_USER")
-PASSWORD = os.getenv("DB_PASSWORD")
+try:
+    import streamlit as st
+
+    URI = st.secrets.get("DB_URI", os.getenv("DB_URI"))
+    USER = st.secrets.get("DB_USER", os.getenv("DB_USER"))
+    PASSWORD = st.secrets.get("DB_PASSWORD", os.getenv("DB_PASSWORD"))
+except Exception:
+    URI = os.getenv("DB_URI")
+    USER = os.getenv("DB_USER")
+    PASSWORD = os.getenv("DB_PASSWORD")
 
 driver = GraphDatabase.driver(
     URI,
