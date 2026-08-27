@@ -16,20 +16,34 @@ In a relational database this would require multiple joins, whereas a graph data
 
 ## Graph Data Model
 
-### Nodes
+The application models career connections as a graph:
 
-* User
-* Skill
-* Company
-* Course
+```text
+              ┌──────────────┐
+              │     User     │
+              └──────┬───────┘
+                     │
+                HAS_SKILL
+                     │
+                     ▼
+              ┌──────────────┐
+              │    Skill     │
+              └──────┬───────┘
+                     ▲
+                HAS_SKILL
+                     │
+              ┌──────┴───────┐
+              │     User     │
+              └──────────────┘
 
-### Relationships
+User ──WORKS_AT──────► Company
+                         │
+                    REQUIRES_SKILL
+                         │
+                         ▼
+                       Skill
 
-* HAS_SKILL
-* WORKS_AT
-* REQUIRES_SKILL
-* TEACHES
-
+User ──TEACHES──────► Course
 ## Features
 
 * User Explorer
@@ -93,10 +107,12 @@ streamlit run app.py
 ```
 
 ## Main Cypher Queries
+###  Mentor Recommendation
 
-### Mentor Recommendation
+The mentor recommendation uses a multi-hop graph traversal:
 
-Finds users sharing common skills through a multi-hop traversal.
+```text
+User → Skill ← User
 
 ### Company Explorer
 
