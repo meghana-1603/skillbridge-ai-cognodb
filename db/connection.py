@@ -15,6 +15,7 @@ except Exception:
     PASSWORD = os.getenv("DB_PASSWORD")
 
 driver = GraphDatabase.driver(URI, auth=(USER, PASSWORD))
+driver.verify_connectivity()
 
 def get_driver():
     return driver
