@@ -44,22 +44,24 @@ User ──WORKS_AT──────► Company
                        Skill
 
 User ──TEACHES──────► Course
+```
+
 ## Features
 
-* User Explorer
-* Mentor Recommendations
-* Company Explorer
-* Required Skills Explorer
-* Live Analytics Dashboard
-* Interactive Charts
+- User Explorer
+- Mentor Recommendations
+- Company Explorer
+- Required Skills Explorer
+- Live Analytics Dashboard
+- Interactive Charts
 
 ## Tech Stack
 
-* Python
-* Streamlit
-* CognoDB Cloud
-* Neo4j Python Driver
-* Cypher
+- Python
+- Streamlit
+- CognoDB Cloud
+- Neo4j Python Driver
+- Cypher
 
 ## Project Structure
 
@@ -107,12 +109,14 @@ streamlit run app.py
 ```
 
 ## Main Cypher Queries
-###  Mentor Recommendation
+
+### Mentor Recommendation
 
 The mentor recommendation uses a multi-hop graph traversal:
 
 ```text
 User → Skill ← User
+```
 
 ### Company Explorer
 
@@ -143,6 +147,7 @@ Displays skills required by selected companies.
 ### Graph View
 
 ![Graph View](assets/graph_view.png)
+
 ## Author
 
 **Meghana Dasari**
