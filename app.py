@@ -1,14 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-import streamlit as st
-
-st.write("DB_URI exists:", "DB_URI" in st.secrets)
-st.write("DB_USER exists:", "DB_USER" in st.secrets)
-st.write("DB_PASSWORD exists:", "DB_PASSWORD" in st.secrets)
-
-if "DB_URI" in st.secrets:
-    st.write("URI prefix:", st.secrets["DB_URI"][:8])
 from db.queries import (
     get_counts,
     get_all_users,
